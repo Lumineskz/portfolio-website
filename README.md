@@ -1,1 +1,1 @@
-luminesk.github.io/portfolio-website
+https://luminesk.github.io/portfolio-website
