@@ -1,0 +1,240 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: monospace;
+    /* Keep variables */
+    --mouse-x: 50%;
+    --mouse-y: 50%;
+    /* Remove the radial gradient from body */
+    background-color: #271f32; /* Use the base dark color */
+    background-attachment: fixed;
+    transition: background 0.1s;
+}
+
+/* Text Styles */
+
+.focus-text{
+    font-size: 1.8rem;
+}
+.secondary-text{
+    margin-top: 4px;
+    font-size: 1.4rem;
+}
+.subtext{
+    font-size: 1.04rem;
+    margin-top: 4px;
+    color: rgb(170, 170, 170);
+    font-weight: 520;
+}
+
+
+
+/* Fixed Container(Leftside bar) CSS */
+.fixed-container{
+    position: fixed;
+    top: 0;
+    width: 25%;
+    /* Use the same dark color for consistency */
+    background-color: rgba(0,0,0,0);
+    color: white;
+    padding: 40px;
+    z-index: 1000;
+    height: 100%;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+}
+
+.fixed-container .profile-image img{
+    width: 175px;
+    height: 175px;
+    border-radius: 50%;
+    margin: 25px 0;
+    box-shadow: 0 4px 8px rgba(255, 255, 255, 0.5);
+}
+.fixed-container .social-media{
+    margin-top: 20px;
+    display: flex;
+    gap: 15px;
+}
+.fixed-container .social-media .social-link{
+    color: white;
+    font-size: 1.7rem;
+    opacity: 70%;
+    transition: transform 0.3s;
+    margin: 0 5px 0 0;
+}
+.fixed-container .social-media .social-link:hover{
+    transform: scale(1.1);
+    opacity: 100%;
+}
+
+.fixed-container .nav-links{
+    margin-top: 100px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+.fixed-container .nav-links li{
+    list-style: none;
+    margin-top: 15px;
+}
+.fixed-container .nav-links a{
+    text-decoration: none;
+    color: white;
+    font-size: 1.2rem;
+    display: inline-block;
+    opacity: 70%;
+    transition: transform 0.3s;
+}
+.fixed-container .nav-links a:hover{
+    transform: scale(1.1);
+    opacity: 100%;
+}
+
+/* Container CSS */
+.container{
+    /* Remove the linear-gradient background */
+    margin-left: 25%;
+    padding: 60px;
+    color: white;
+    min-height: 100vh;
+    position: relative;
+    overflow: hidden;
+
+    /* --- ADD TORCHLIGHT GRADIENT HERE --- */
+    background: radial-gradient(
+        circle 300px at var(--mouse-x) var(--mouse-y), /* Increased size for visibility */
+        rgba(82, 50, 110, 0.075) 0%, /* Dimmer light purple */
+        #20232c 70% /* Fade to the container's base dark color */
+    );
+    background-attachment: fixed; /* Crucial: Ensures gradient is fixed in position */
+}
+.container .card{
+    background: #25212c;
+    padding: 30px;
+    border-radius: 10px;
+    margin-bottom: 40px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    margin-top:20px;
+}
+.container .skills{
+    list-style: none;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-top: 15px;
+    font-size: 1.02rem;
+    font-weight: bold;
+}
+.container .logo{
+    width: 20px;
+    height: 20px;
+    margin-right: 8px;
+    margin-left: 2px;
+    vertical-align: middle;
+}
+.container .logo img{
+    width: 20px;
+    height: 20px;
+    margin-right: 8px;
+    vertical-align: middle;
+}
+.red{
+    background-color: #ffa197;
+    color: #e63946;
+    padding: 8px 12px;
+    border-radius: 155px;
+}
+.blue{
+    background-color: #a3c9ff;
+    color: rgb(42, 102, 226);
+    padding: 8px 12px;
+    border-radius: 155px;
+}  
+.green{
+    background-color: #b2ffb0;
+    color: rgb(34, 153, 34);
+    padding: 8px 12px;
+    border-radius: 155px;
+}
+.yellow{
+    background-color: #fff5ab;
+    color: rgb(188, 157, 20);
+    padding: 8px 12px;
+    border-radius: 155px;
+}
+.orange{
+    background-color: #ffd9a3;
+    color: rgb(241, 140, 39);
+    padding: 8px 12px;
+    border-radius: 155px;
+}
+
+/* Background */
+/* Base style for a large, blurred particle */
+.particle-container::before, 
+.particle-container::after {
+    content: '';
+    position: absolute;
+    /* Reduced purple opacity slightly for a dimmer look */
+    background: radial-gradient(circle, rgba(160, 50, 255, 0.3) 0%, rgba(20, 20, 40, 0) 70%);
+    border-radius: 50%;
+    filter: blur(100px); /* Increased blur */
+    opacity: 0.7;
+    z-index: 1; /* Keep below content */
+}
+
+.particle-container::before {
+    /* Particle 1: Top Left - Larger */
+    width: 350px;
+    height: 350px;
+    top: 10%;
+    left: 10%;
+    animation: floatParticle1 20s infinite alternate ease-in-out;
+}
+
+.particle-container::after {
+    /* Particle 2: Bottom Right - Medium */
+    width: 250px;
+    height: 250px;
+    bottom: 5%;
+    right: 15%;
+    animation: floatParticle2 25s infinite alternate ease-in-out;
+}
+
+/* *New Particle* - Requires an element inside the particle-container */
+.particle-container .third-particle {
+    position: absolute;
+    width: 150px;
+    height: 150px;
+    top: 70%;
+    left: 40%;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(160, 50, 255, 0.35) 0%, rgba(20, 20, 40, 0) 70%);
+    filter: blur(70px);
+    opacity: 0.9;
+    z-index: 1;
+    animation: floatParticle3 30s infinite alternate-reverse ease-in-out;
+}
+/* Animation Keyframes: Make the particles float gently and scale */
+@keyframes floatParticle1 {
+    0% { transform: translate(0, 0) scale(1); }
+    50% { transform: translate(100px, -50px) scale(1.1); } /* Move and grow */
+    100% { transform: translate(-30px, 20px) scale(0.95); } /* Move to a different spot and shrink */
+}
+
+@keyframes floatParticle2 {
+    0% { transform: translate(0, 0) scale(1.1); }
+    30% { transform: translate(-50px, 80px) scale(0.9); }
+    100% { transform: translate(40px, -60px) scale(1.05); }
+}
+
+@keyframes floatParticle3 {
+    0% { transform: translate(0, 0) scale(0.9); }
+    40% { transform: translate(-150px, -20px) scale(1.1); }
+    80% { transform: translate(50px, 120px) scale(1); }
+    100% { transform: translate(0, 0) scale(0.9); }
+}
