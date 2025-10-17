@@ -3,14 +3,17 @@
     padding: 0;
     box-sizing: border-box;
 }
+html {
+  scroll-behavior: smooth;
+}
 
 body {
-    font-family: monospace;
+    font-family: 'JetBrains Mono',monospace;
     /* Keep variables */
     --mouse-x: 50%;
     --mouse-y: 50%;
     /* Remove the radial gradient from body */
-    background-color: #271f32; /* Use the base dark color */
+    background-color: #18191C; /* Use the base dark color */
     background-attachment: fixed;
     transition: background 0.1s;
 }
@@ -18,20 +21,24 @@ body {
 /* Text Styles */
 
 .focus-text{
-    font-size: 1.8rem;
-}
-.secondary-text{
-    margin-top: 4px;
     font-size: 1.4rem;
 }
-.subtext{
-    font-size: 1.04rem;
+.name-text{
+    font-size: 1.5rem;
+    font-weight: bold;
     margin-top: 4px;
+    color: rgb(250, 179, 250)
+}
+.secondary-text{
+    margin-top: 7px;
+    font-size: 1.1rem;
+}
+.subtext{
+    font-size: 1rem;
+    margin-top: 7px;
     color: rgb(170, 170, 170);
     font-weight: 520;
 }
-
-
 
 /* Fixed Container(Leftside bar) CSS */
 .fixed-container{
@@ -39,20 +46,25 @@ body {
     top: 0;
     width: 25%;
     /* Use the same dark color for consistency */
-    background-color: rgba(0,0,0,0);
+    background-color: #20232c 70%;
     color: white;
     padding: 40px;
     z-index: 1000;
     height: 100%;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    box-shadow: 0 0 10px rgba(53, 51, 53, 0.385);
+    background: radial-gradient(
+        circle 300px at var(--mouse-x) var(--mouse-y), /* Increased size for visibility */
+        rgba(203, 117, 229, 0.118) 0%, /* Dimmer light purple */
+        #20232c 70% /* Fade to the container's base dark color */
+    );
 }
 
 .fixed-container .profile-image img{
-    width: 175px;
-    height: 175px;
+    width: 150px;
+    height: 150px;
     border-radius: 50%;
     margin: 25px 0;
-    box-shadow: 0 4px 8px rgba(255, 255, 255, 0.5);
+    box-shadow: 0 4px 8px rgba(224, 203, 223, 0.5);
 }
 .fixed-container .social-media{
     margin-top: 20px;
@@ -61,10 +73,10 @@ body {
 }
 .fixed-container .social-media .social-link{
     color: white;
-    font-size: 1.7rem;
+    font-size: 1.4rem;
     opacity: 70%;
     transition: transform 0.3s;
-    margin: 0 5px 0 0;
+    margin: -10px 5px 0 0;
 }
 .fixed-container .social-media .social-link:hover{
     transform: scale(1.1);
@@ -84,10 +96,17 @@ body {
 .fixed-container .nav-links a{
     text-decoration: none;
     color: white;
-    font-size: 1.2rem;
+    font-size: 1rem;
     display: inline-block;
     opacity: 70%;
-    transition: transform 0.3s;
+    transition: transform 0.3s, opacity 0.3s;
+}
+.fixed-container .nav-links a.active {
+    opacity: 100%; /* Full opacity */
+    font-size: 1.1rem; /* Slightly bigger font size */
+    font-weight: bold;
+    color: #ffffff; /* Use your primary accent color for a stronger highlight */
+    transform: scale(1.05); /* Ensure it stays slightly scaled */
 }
 .fixed-container .nav-links a:hover{
     transform: scale(1.1);
@@ -107,14 +126,17 @@ body {
     /* --- ADD TORCHLIGHT GRADIENT HERE --- */
     background: radial-gradient(
         circle 300px at var(--mouse-x) var(--mouse-y), /* Increased size for visibility */
-        rgba(82, 50, 110, 0.075) 0%, /* Dimmer light purple */
+        rgba(153, 96, 211, 0.166) 0%, /* Dimmer light purple */
         #20232c 70% /* Fade to the container's base dark color */
     );
     background-attachment: fixed; /* Crucial: Ensures gradient is fixed in position */
 }
 .container .card{
-    background: #25212c;
-    padding: 30px;
+    background: radial-gradient(
+        circle 300px at var(--mouse-x) var(--mouse-y), /* Increased size for visibility */
+        #2e313d 70% /* Fade to the container's base dark color */
+    );
+    padding: 25px;
     border-radius: 10px;
     margin-bottom: 40px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
@@ -142,9 +164,122 @@ body {
     margin-right: 8px;
     vertical-align: middle;
 }
+
+/* Projects Section */
+.container .project-table tr{
+    display: grid;
+    grid-auto-flow: column;
+    grid-auto-columns: 1fr; /* each td becomes an equal-width column and fills the row */
+    align-items: center;
+    gap: 15px;
+    box-sizing: border-box;
+    padding: 12px 15px;
+    margin-top: 10px;
+    border-radius: 8px;
+    background-color: #c497e010;
+    transition: background-color 0.3s;
+}
+.container .project-table .date{
+    color: rgb(170, 170, 170);
+    font-size: 0.9rem;
+    margin-left: auto;
+}
+
+.container .project-table tr td a{
+    text-decoration: none;
+    color: #d18aff;
+    transition: color text-decoration 0.3s;
+}
+.container .project-table tr td a:hover{
+    text-decoration: underline;
+    color: #ff9aff;
+}
+.container .project-table tr:hover{
+    background-color: #c497e02f;
+}
+.container .project-table tr td p{
+    font-size: 0.75rem;
+    color: #fff;
+    opacity: 40%;
+}
+
+/* Contact form */
+.contact-form{
+    padding: 20px;
+    background: radial-gradient(
+        circle 300px at var(--mouse-x) var(--mouse-y), /* Increased size for visibility */
+        #20232c4f 70% /* Fade to the container's base dark color */
+    );
+    margin: auto;
+    width: 50%;
+    border-radius: 15px;
+}
+.contact-form label{
+    display: block;
+    margin-top: 12px; /* gap above each label */
+    margin-bottom: 6px; /* small gap between label and field */
+    font-weight: 600;
+    color: #e6e6e6;
+}
+.contact-form input,
+.contact-form textarea{
+    display: block;
+    padding: 15px;
+    width: 100%;
+    border-radius: 10px;
+    margin-top: 3px;
+    font-family: 'JetBrains Mono',monospace;
+}
+.contact-form input:focus,
+.contact-form textarea:focus{
+    box-shadow: 0 4px 8px rgba(245, 64, 255, 0.4);
+    border: none;
+}
+.contact-form textarea{
+    height: 150px;
+}
+
+.contact-form button{
+    background: linear-gradient(90deg,rgba(42, 61, 155, 1) 0%, rgba(137, 87, 199, 1) 50%, rgba(63, 75, 99, 1) 100%);
+    border: none;
+    color: white;
+    margin-top: 14px;
+    display: block;
+    padding: 15px;
+    width: 100%;
+    font-size: 1.1rem;
+    border-radius: 10px;
+    font-family: 'JetBrains Mono',monospace;
+    cursor: pointer;
+    transition: 0.3s;
+}
+.contact-form button:hover{
+    transform: scale(1.01);
+    background:linear-gradient(270deg,rgba(42, 61, 155, 1) 0%, rgba(137, 87, 199, 1) 50%, rgba(63, 75, 99, 1) 100%);
+}
+.contact-forms .card .contact-link{
+    text-decoration: none;
+    color: white;
+    font-size: 1.5em;
+    margin-right: 10px;
+    opacity: 70%;
+    transition: 0.3s;
+}
+.contact-forms .card .contact-link:hover{
+    opacity: 100%;
+    transform: scale(1.1);
+}
+
+.required{
+    color: #f55656;
+}
+
+
+
+/* Color text */
 .red{
     background-color: #ffa197;
-    color: #e63946;
+    color: #d2313f;
     padding: 8px 12px;
     border-radius: 155px;
 }
@@ -172,6 +307,7 @@ body {
     padding: 8px 12px;
     border-radius: 155px;
 }
+
 
 /* Background */
 /* Base style for a large, blurred particle */
