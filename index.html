@@ -11,7 +11,13 @@
 <body>
 
     <div class="fixed-container">
-        <h2 class="focus-text">My Portfolio</h2>
+        <h2 class="focus-text">My Portfolio</h2> 
+        <h3 class="status">Status: 
+            <span class="online">•</span>
+            <span class="offline"></span>
+            <span class="away"></span>
+        </h3>
+
         <div class="profile-image">
             <img src="images/default-avatar-icon-of-social-media-user-vector.jpg" alt="Profile Image">
         </div>
@@ -53,10 +59,10 @@
         <h2 class="focus-text" id="projects">Projects</h2>
         <p class="subtext">Some of my previous projects.</p>
         <div class="card">
-            <p class="subtext">🟢 : In progress</p>
+            <p>🟢 : In progress</p>
             <table class="project-table">
                 <tr>
-                    <td><a href="https://github.com/Lumineskz/cafeconnect">1 • CafeConnect 🔗</a><br><p>HTML, CSS, Javascript</p></td>
+                    <td><a href="https://github.com/Lumineskz/cafeconnect" target="_blank" data-preview-img="images/cafeconnect.png" class="project-link">1 • CafeConnect 🔗</a><br><p>HTML, CSS, Javascript</p></td>
                     <td>Simulated cafe ordering website without database.</td>
                     <td class="date">22 May, 2025</td>
                 </tr>
@@ -71,7 +77,7 @@
                     <td class="date">7 Oct, 2025</td>
                 </tr>
                 <tr>
-                    <td><a href="https://github.com/Lumineskz/library-management-system">4 • Library Management System 🔗</a><br><p>HTML, CSS, JS, PHP</p></td>
+                    <td><a href="https://github.com/Lumineskz/library-management-system" target="_blank">4 • Library Management System 🔗</a><br><p>HTML, CSS, JS, PHP</p></td>
                     <td>A simple database library management system.</td>
                     <td class="date">17 Oct, 2025 🟢</td>
                 </tr>
@@ -139,6 +145,9 @@
             <a href="" class="contact-link"><i class="fa-brands fa-linkedin"></i></a>
         </div>
         </div>
+    </div>
+    <div id="image-preview-box">
+        <img id="preview-image" src="" alt="Project Preview">
     </div>
     <script src="script.js"></script>
 </body>

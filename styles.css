@@ -21,17 +21,17 @@ body {
 /* Text Styles */
 
 .focus-text{
-    font-size: 1.4rem;
+    font-size: 1.3rem;
 }
 .name-text{
-    font-size: 1.5rem;
+    font-size: 1.4rem;
     font-weight: bold;
     margin-top: 4px;
     color: rgb(250, 179, 250)
 }
 .secondary-text{
     margin-top: 7px;
-    font-size: 1.1rem;
+    font-size: 1.05rem;
 }
 .subtext{
     font-size: 1rem;
@@ -67,7 +67,7 @@ body {
     box-shadow: 0 4px 8px rgba(224, 203, 223, 0.5);
 }
 .fixed-container .social-media{
-    margin-top: 20px;
+    margin-top: 16px;
     display: flex;
     gap: 15px;
 }
@@ -84,7 +84,7 @@ body {
 }
 
 .fixed-container .nav-links{
-    margin-top: 100px;
+    margin-top: 70px;
     display: flex;
     flex-direction: column;
     gap: 20px;
@@ -202,6 +202,33 @@ body {
     color: #fff;
     opacity: 40%;
 }
+#image-preview-box {
+    position: fixed; /* Keep it relative to the viewport */
+    top: 0;
+    left: 0;
+    z-index: 9999; /* Ensure it's on top of everything */
+    pointer-events: none; /* Crucial: Allows the mouse to interact with elements underneath */
+    opacity: 0; /* Hidden by default */
+    transform: translate(-50%, -100%); /* Centers the image above the cursor */
+    transition: opacity 0.3s ease-out; /* Smooth fade in/out */
+    max-width: 250px; /* Adjust size as needed */
+    max-height: 150px;
+    border: 2px solid #67517a; /* Primary Accent border */
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+#image-preview-box.visible {
+    opacity: 1; /* Show when 'visible' class is added by JS */
+}
+
+#preview-image {
+    display: block;
+    width: 250px;
+    height: auto;
+    object-fit: cover;
+}
 
 /* Contact form */
 .contact-form{
@@ -307,7 +334,35 @@ body {
     padding: 8px 12px;
     border-radius: 155px;
 }
-
+.status{
+    font-size: 15px;
+    margin-top: -15px;
+    color: rgb(156, 152, 152);
+}
+.online{
+    align-items: center;
+    justify-content: center;
+    vertical-align:middle;
+    color: #3dbf3d;
+    font-size: 35px;
+    box-shadow: rgba(61, 213, 19, 0.773);
+}
+.offline{
+    align-items: center;
+    justify-content: center;
+    vertical-align:middle;
+    color: #bf483d;
+    font-size: 35px;
+    box-shadow: rgba(213, 29, 19, 0.773);
+}
+.away{
+    align-items: center;
+    justify-content: center;
+    vertical-align:middle;
+    color: #e6b736;
+    font-size: 35px;
+    box-shadow: rgba(210, 213, 19, 0.773);
+}
 
 /* Background */
 /* Base style for a large, blurred particle */

@@ -1,22 +1,12 @@
-// script.js
-
+// Mouse tracking
 document.addEventListener('mousemove', (e) => {
     // Get the current mouse position (relative to the viewport)
     const mouseX = e.clientX;
     const mouseY = e.clientY;
-
-    // Convert pixel values to percentage or "px" for CSS custom properties.
-    // Here we'll use pixel values for high precision, but we need to account for scrolling.
-    
-    // Calculate the mouse position relative to the entire page, including scroll.
-    // Since the CSS 'background-attachment: fixed' is used, we only need the viewport coordinates.
-
-    // Update the CSS variables on the body element.
     document.body.style.setProperty('--mouse-x', `${mouseX}px`);
     document.body.style.setProperty('--mouse-y', `${mouseY}px`);
 });
 
-// script.js
 
 // --- 1. TORCHLIGHT MOUSE TRACKING ---
 document.addEventListener('mousemove', (e) => {
@@ -28,6 +18,7 @@ document.addEventListener('mousemove', (e) => {
     document.body.style.setProperty('--mouse-x', `${mouseX}px`);
     document.body.style.setProperty('--mouse-y', `${mouseY}px`);
 });
+
 
 // --- 2. ACTIVE NAVIGATION HIGHLIGHTING (ScrollSpy) ---
 document.addEventListener('DOMContentLoaded', () => {
@@ -46,9 +37,6 @@ document.addEventListener('DOMContentLoaded', () => {
             const sectionTop = section.offsetTop;
             const sectionHeight = section.clientHeight;
             
-            // We consider a section active when the scroll is past its top, 
-            // and we subtract a small offset (e.g., 200px) to activate the link 
-            // before the section hits the very top of the screen.
             if (window.scrollY >= sectionTop - 200) {
                 current = section.getAttribute('id');
             }
@@ -72,4 +60,57 @@ document.addEventListener('DOMContentLoaded', () => {
     
     // Run once on load to set the initial active link
     updateActiveLink();
+});
+
+
+// ** PREVIEW IMAGE UPON HOVERING ON PROJECT **
+document.addEventListener('DOMContentLoaded', () => {
+    // ... existing ScrollSpy code ...
+    
+    // New variables for image preview
+    const previewBox = document.getElementById('image-preview-box');
+    const previewImage = document.getElementById('preview-image');
+    const projectLinks = document.querySelectorAll('.project-link'); // Select all links with the class
+
+    // Event listeners for each project link
+    projectLinks.forEach(link => {
+        
+        // --- SHOW PREVIEW (Mouse Enter) ---
+        link.addEventListener('mouseenter', function() {
+            const imgUrl = this.getAttribute('data-preview-img');
+            
+            if (imgUrl) {
+                // Set the image source
+                previewImage.src = imgUrl;
+                
+                // Show the preview box after a slight delay for smoother reveal
+                setTimeout(() => {
+                    previewBox.classList.add('visible');
+                }, 50); // Small delay
+            }
+        });
+
+        // --- POSITION PREVIEW (Mouse Move) ---
+        link.addEventListener('mousemove', function(e) {
+            // Get cursor coordinates (clientX/Y are viewport relative)
+            const x = e.clientX;
+            const y = e.clientY;
+            
+            // Set the box position directly above the cursor
+            // The CSS transform: translate(-50%, -100%) handles centering and placement
+            previewBox.style.left = `${x}px`;
+            previewBox.style.top = `${y - 10}px`; // -10px lifts it slightly off the cursor
+        });
+
+        // --- HIDE PREVIEW (Mouse Leave) ---
+        link.addEventListener('mouseleave', function() {
+            // Hide the preview box immediately
+            previewBox.classList.remove('visible');
+            
+            // Clear the source after hiding to prevent a brief flash of the old image
+            setTimeout(() => {
+                previewImage.src = ''; 
+            }, 300); // Wait for the CSS transition (0.3s) to finish
+        });
+    });
 });
