@@ -358,6 +358,9 @@ body {
     position: relative; /* Crucial to bring them forward */
     z-index: 30; /* The highest z-index to ensure clickability */
 }
+input{
+    outline: none;
+}
 .required{
     color: #f55656;
 }
