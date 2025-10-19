@@ -289,6 +289,8 @@ body {
     margin: auto;
     width: 50%;
     border-radius: 15px;
+    position: relative; 
+    z-index: 20;
 }
 .contact-form label{
     display: block;
@@ -345,7 +347,13 @@ body {
     opacity: 100%;
     transform: scale(1.1);
 }
-
+.contact-form input[type="text"],
+.contact-form input[type="email"],
+.contact-form textarea,
+.contact-form button {
+    position: relative; /* Crucial to bring them forward */
+    z-index: 30; /* The highest z-index to ensure clickability */
+}
 .required{
     color: #f55656;
 }
@@ -435,7 +443,11 @@ body {
     left: 10%;
     animation: floatParticle1 20s infinite alternate ease-in-out;
 }
-
+.particle-container {
+    /* Set this element to a very low z-index */
+    z-index: 1; 
+    pointer-events: none; /* Keep this to ensure it doesn't block ALL clicks */
+}
 .particle-container::after {
     /* Particle 2: Bottom Right - Medium */
     width: 250px;
