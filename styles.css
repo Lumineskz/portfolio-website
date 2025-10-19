@@ -508,7 +508,7 @@ body {
     }
     .close-btn {
         display: block;
-        background-color: rgb(110, 30, 57);
+        background-color: rgba(102, 30, 110, 0.712);
         padding: 5px 10px;
         border-radius: 100%;
     }
@@ -521,7 +521,7 @@ body {
     .fixed-container {
         display: block; /* Make it visible (but off-screen) */
         width: 100%; /* Full screen width */
-        background: #28222fe3;
+        background: #241f30e3;
         backdrop-filter: blur(10px);
         transform: translateX(-100%); /* Start completely off-screen to the left */
         transition: transform 0.4s ease-in-out; /* Smooth sliding transition */
