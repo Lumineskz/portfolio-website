@@ -39,6 +39,56 @@ body {
     color: rgb(170, 170, 170);
     font-weight: 520;
 }
+#main-header {
+    position: fixed;
+    top: 0;
+    left: 25%;
+    width: 75%;
+    background-color: rgba(35, 35, 48, 0.85);
+    backdrop-filter: blur(10px);
+    color: white;
+    padding: 15px 30px;
+    display: none; /* Hide on desktop */
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 2px 5px rgba(100, 74, 97, 0.4);
+    z-index: 900;
+}
+
+.header-logo {
+    font-size: 1.2rem;
+    color: #cca7ec; /* Primary Accent */
+}
+
+.hamburger-btn {
+    background: none;
+    border: none;
+    color: rgb(227, 169, 232);
+    font-size: 1.5rem;
+    cursor: pointer;
+    transition: color 0.2s;
+    box-shadow: rgb(168, 161, 177. 0.5);
+    border-radius: 100%;
+}
+
+.hamburger-btn:hover {
+    color: #b693d4; /* Highlight on hover */
+}
+.close-btn {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    background: none;
+    border: none;
+    color: white;
+    font-size: 1.5rem;
+    cursor: pointer;
+    z-index: 1001; /* Ensure it's above everything */
+    display: none; /* Hidden by default on desktop */
+}
+.close-btn:hover {
+    color: #A032FF; /* Primary accent color on hover */
+}
 
 /* Fixed Container(Leftside bar) CSS */
 .fixed-container{
@@ -46,7 +96,6 @@ body {
     top: 0;
     width: 25%;
     /* Use the same dark color for consistency */
-    background-color: #20232c 70%;
     color: white;
     padding: 40px;
     z-index: 1000;
@@ -54,7 +103,7 @@ body {
     box-shadow: 0 0 10px rgba(53, 51, 53, 0.385);
     background: radial-gradient(
         circle 300px at var(--mouse-x) var(--mouse-y), /* Increased size for visibility */
-        rgba(203, 117, 229, 0.118) 0%, /* Dimmer light purple */
+        rgba(153, 96, 211, 0.166) 0%, /* Dimmer light purple */
         #20232c 70% /* Fade to the container's base dark color */
     );
 }
@@ -428,4 +477,162 @@ body {
     40% { transform: translate(-150px, -20px) scale(1.1); }
     80% { transform: translate(50px, 120px) scale(1); }
     100% { transform: translate(0, 0) scale(0.9); }
+}
+
+/* Responsive: tablet / small desktop */
+@media (max-width: 900px) {
+    .focus-text{
+    font-size: .9rem;
+}
+.name-text{
+    font-size: 1.08rem;
+    font-weight: bold;
+    margin-top: 4px;
+    color: rgb(250, 179, 250)
+}
+.secondary-text{
+    margin-top: 7px;
+    font-size: .9rem;
+}
+.subtext{
+    font-size: .85rem;
+    margin-top: 7px;
+    color: rgb(170, 170, 170);
+    font-weight: 520;
+}
+/* Show the main header on mobile */
+    #main-header {
+        display: flex;
+        left: 0;
+        width: 100%;
+    }
+    .close-btn {
+        display: block;
+        background-color: rgb(110, 30, 57);
+        padding: 5px 10px;
+        border-radius: 100%;
+    }
+    .fixed-container.open {
+        transform: translateX(0); /* Slide fully into view */
+    }
+    #main-header.menu-open #hamburger-btn {
+        display: none;
+    }
+    .fixed-container {
+        display: block; /* Make it visible (but off-screen) */
+        width: 100%; /* Full screen width */
+        background: #28222fe3;
+        backdrop-filter: blur(10px);
+        transform: translateX(-100%); /* Start completely off-screen to the left */
+        transition: transform 0.4s ease-in-out; /* Smooth sliding transition */
+        z-index: 1500; /* Higher than header */
+    }
+    .fixed-container .nav-links{
+        display: flex;
+        flex-direction: row;
+    }
+    .fixed-container .nav-links a{
+        font-size: 0.8rem;
+    }
+    .fixed-container .profile-image img{
+        margin-left: 35%;
+        width: 100px;
+        height: 100px;
+    }
+    /* Make the main content area full width and add padding for the fixed header */
+    .container {
+        margin-left: 0; 
+        padding: 77px 20px 20px 20px;
+    }
+    .container .project-table tr{
+    display: grid;
+    grid-auto-flow: column;
+    grid-auto-columns:  1fr; /* each td becomes an equal-width column and fills the row */
+    align-items: center;
+    gap: 15px;
+    box-sizing: border-box;
+    padding: 12px 15px;
+    margin-top: 10px;
+    border-radius: 8px;
+    background-color: #c497e010;
+    transition: background-color 0.3s;
+}
+.container .project-table .date{
+    color: rgb(170, 170, 170);
+    font-size: 0.7rem;
+    margin-left: auto;
+}
+
+.container .project-table tr td a{
+    font-size: 0.75rem;
+    text-decoration: none;
+    color: #d18aff;
+    transition: color text-decoration 0.3s;
+}
+.container .project-table tr td a:hover{
+    text-decoration: underline;
+    color: #ff9aff;
+}
+.container .project-table tr:hover{
+    background-color: #c497e02f;
+}
+.container .project-table tr td p{
+    font-size: 0.6rem;
+    color: #fff;
+    opacity: 40%;
+} 
+.desc{
+    display: none;
+}
+.desc, .date{
+    font-size: 0.65rem;
+}
+.contact-forms .contact-form{
+        width: 100%;
+        font-size: 0.85rem;
+}
+.container .card{
+    padding: 14px;
+}
+.red{
+    font-size: 0.75rem;
+    padding: 6px 10px;
+    width: auto;
+    height: auto;
+    font-weight: bold;
+}
+.blue{
+    font-size: 0.75rem;
+    font-weight: bold;
+}
+.green{
+    font-size: 0.75rem;
+    font-weight: bold;
+}
+.yellow{
+    font-size: 0.75rem;
+    font-weight: bold;
+}
+.orange{
+    font-size: 0.75rem;
+    font-weight: bold;
+}
+.container .logo{
+    width: 15px;
+    height: 15px;
+    margin-right: 8px;
+    margin-left: 2px;
+    vertical-align: middle;
+}
+.container .logo img{
+    width: 10px;
+    height: 10px;
+    margin-right: 8px;
+    vertical-align: middle;
+}
+}
+
+/* Responsive: mobile phones */
+@media (max-width: 480px) {
+    
 }

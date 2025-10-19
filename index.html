@@ -9,8 +9,17 @@
     <script src="https://kit.fontawesome.com/5f3c0ac785.js" crossorigin="anonymous"></script>
 </head>
 <body>
+    <header id="main-header">
+        <h1 class="header-logo focus-text">Portfolio</h1>
+        <button id="hamburger-btn" class="hamburger-btn" aria-label="Open menu">
+            <i class="fa-solid fa-circle-user"></i>
+        </button>
+    </header>
 
-    <div class="fixed-container">
+    <div class="fixed-container" id="mobile-menu">
+        <button id="close-btn" class="close-btn" aria-label="Close menu">
+            <i class="fas fa-times"></i>
+        </button>
         <h2 class="focus-text">My Portfolio</h2> 
         <h3 class="status">Status: 
             <span class="online">•</span>
@@ -43,7 +52,7 @@
     <div class="container">
         <div class="particle-container"><div class="third-particle"></div></div>
         <h2 class="focus-text" id="about">About Me</h2>
-        <p class="subtext">Lorem ipsum dolor sit amet consectetur adipisicing elit. Sint exercitationem harum quasi, impedit in est! Accusamus, quaerat consequuntur dolorem suscipit earum voluptatum pariatur quas nihil! Sapiente minima, officia fugit beatae tempore, consectetur ipsum rem sed necessitatibus, odit ipsam officiis harum alias accusamus magnam facilis itaque nam quidem repellendus aliquam laudantium quae. Doloribus et deserunt cum modi! Maxime provident dolorum odio!</p>
+        <p class="subtext">Lorem ipsum dolor sit amet consectetur adipisicing elit. Sint exercitationem harum quasi, impedit in est! Accusamus, quaerat consequuntur dolorem suscipit earum voluptatum pariatur quas nihil!!</p>
         <div class="card">
             <h2 class="secondary-text">Skills</h2>
             <ul class="skills">
@@ -63,22 +72,22 @@
             <table class="project-table">
                 <tr>
                     <td><a href="https://github.com/Lumineskz/cafeconnect" target="_blank" data-preview-img="images/cafeconnect.png" class="project-link">1 • CafeConnect 🔗</a><br><p>HTML, CSS, Javascript</p></td>
-                    <td>Simulated cafe ordering website without database.</td>
+                    <td class="desc">Simulated cafe ordering website without database.</td>
                     <td class="date">22 May, 2025</td>
                 </tr>
                 <tr>
                     <td><a href="https://github.com/Lumineskz/python-projects/tree/main/2048%20game">2 •  Hangman Game 🔗<br><p>Python</p></a></td>
-                    <td>A Standard Hangman game made in Python.</td>
+                    <td class="desc">A Standard Hangman game made in Python.</td>
                     <td class="date">25 Sept, 2025</td>
                 </tr>
                 <tr>
                     <td><a href="https://github.com/Lumineskz/python-projects/tree/main/2048%20game">3 •  2048 Game Python 🔗<br><p>Python + tkinter</p></a></td>
-                    <td>A Standard 2048 game based on python.</td>
+                    <td class="desc">A Standard 2048 game based on python.</td>
                     <td class="date">7 Oct, 2025</td>
                 </tr>
                 <tr>
                     <td><a href="https://github.com/Lumineskz/library-management-system" target="_blank">4 • Library Management System 🔗</a><br><p>HTML, CSS, JS, PHP</p></td>
-                    <td>A simple database library management system.</td>
+                    <td class="desc">A simple database library management system.</td>
                     <td class="date">17 Oct, 2025 🟢</td>
                 </tr>
             </table>
@@ -88,7 +97,7 @@
         <p class="subtext">Some of my previous work experiences.</p>
         <div class="card">
             <table class="project-table">
-                404 not found
+                <p class="subtext">404 not found</p> 
                 <tr>
                     <td>--</td>
                     <td>--</td>
