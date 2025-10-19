@@ -114,3 +114,38 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 });
+
+document.addEventListener('DOMContentLoaded', () => {
+    // --- 0. MOBILE MENU TOGGLE ---
+    const hamburgerBtn = document.getElementById('hamburger-btn');
+    const closeBtn = document.getElementById('close-btn');
+    const mobileMenu = document.getElementById('mobile-menu');
+    const mainHeader = document.getElementById('main-header');
+
+    if (hamburgerBtn && mobileMenu) {
+        // Open the menu
+        hamburgerBtn.addEventListener('click', () => {
+            mobileMenu.classList.add('open');
+            mainHeader.classList.add('menu-open');
+        });
+
+        // Close the menu using the 'X' button
+        closeBtn.addEventListener('click', () => {
+            mobileMenu.classList.remove('open');
+            mainHeader.classList.remove('menu-open');
+        });
+        
+        // Also close the menu when a nav link is clicked (UX improvement)
+        const navLinks = document.querySelectorAll('.fixed-container .nav-links a');
+        navLinks.forEach(link => {
+             link.addEventListener('click', () => {
+                 // Only auto-close on mobile (check if the menu is open)
+                 if (mobileMenu.classList.contains('open')) {
+                    mobileMenu.classList.remove('open');
+                    mainHeader.classList.remove('menu-open');
+                 }
+             });
+        });
+    }
+
+});
