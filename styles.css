@@ -520,6 +520,7 @@ body {
     }
     .fixed-container {
         display: block; /* Make it visible (but off-screen) */
+        height: 100vh;
         width: 100%; /* Full screen width */
         background: #241f30e3;
         backdrop-filter: blur(10px);
