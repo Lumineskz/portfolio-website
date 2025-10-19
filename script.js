@@ -96,8 +96,6 @@ document.addEventListener('DOMContentLoaded', () => {
             const x = e.clientX;
             const y = e.clientY;
             
-            // Set the box position directly above the cursor
-            // The CSS transform: translate(-50%, -100%) handles centering and placement
             previewBox.style.left = `${x}px`;
             previewBox.style.top = `${y - 10}px`; // -10px lifts it slightly off the cursor
         });
@@ -107,10 +105,9 @@ document.addEventListener('DOMContentLoaded', () => {
             // Hide the preview box immediately
             previewBox.classList.remove('visible');
             
-            // Clear the source after hiding to prevent a brief flash of the old image
             setTimeout(() => {
                 previewImage.src = ''; 
-            }, 300); // Wait for the CSS transition (0.3s) to finish
+            }, 300); 
         });
     });
 });
