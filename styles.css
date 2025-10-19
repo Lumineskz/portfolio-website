@@ -180,6 +180,10 @@ body {
     );
     background-attachment: fixed; /* Crucial: Ensures gradient is fixed in position */
 }
+.mobile-text{
+    color: lightgreen;
+    font-size: 0px;
+}
 .container .card{
     background: radial-gradient(
         circle 300px at var(--mouse-x) var(--mouse-y), /* Increased size for visibility */
@@ -557,6 +561,10 @@ body {
     .container {
         margin-left: 0; 
         padding: 77px 20px 20px 20px;
+    }
+    .mobile-text{
+        color: lightgreen;
+        font-size: 12px;
     }
     .container .project-table tr{
     display: grid;
